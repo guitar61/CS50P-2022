@@ -1,0 +1,6 @@
+def main():
+    answer = input("")
+    if ":)" or "(:" in answer:
+        print(answer.replace(':)' , "🙂").replace(':(' , "🙁"))
+
+main()
