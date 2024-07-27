@@ -1,0 +1,8 @@
+prompt = input("Greeting: ").lower()
+
+if "hello" in prompt:
+    print("$0")
+elif "h" in prompt[0] and prompt != 'hello':
+    print("$20")
+else:
+    print("$100")
