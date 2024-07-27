@@ -35,7 +35,7 @@ CS50P is an entry-level course that teaches students how to think algorithmicall
     - **Solution**: [problem0.py](https://github.com/guitar61/cs50P-2022/tree/main/Problem%20Set%200)
 
 2. **Problem 1** - [Link to problem description](https://cs50.harvard.edu/python/2022/psets/0/)
-    - **Solution**: [problem1.py](week0/problem1.py)
+    - **Solution**: [problem1.py]([week0/problem1.py](https://github.com/guitar61/CS50P-2022/tree/main/Problem%20Set%201))
 
 ...
 
