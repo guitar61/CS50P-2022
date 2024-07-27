@@ -1,0 +1,24 @@
+# extensions.py
+
+file_name = input("File name: ").lower().strip()
+
+file_types = {
+    ".gif": "image/gif",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".pdf": "application/pdf",
+    ".txt": "text/plain",
+    ".zip": "application/zip"
+}
+
+# Default media type
+media_type = "application/octet-stream"
+
+# Check for each file type
+for extension, type in file_types.items():
+    if file_name.endswith(extension):
+        media_type = type
+        break
+
+print(media_type)
