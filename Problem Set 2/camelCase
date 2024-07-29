@@ -1,0 +1,14 @@
+def snake_case():
+    camel = input("camelCase: ")
+    snake = ""
+
+    for i, char in enumerate(camel):
+        if char.isupper():
+            if i != 0:  # Do not prepend underscore if it's the first character
+                snake += "_"
+            snake += char.lower()
+        else:
+            snake += char
+    return snake
+
+print(snake_case())
