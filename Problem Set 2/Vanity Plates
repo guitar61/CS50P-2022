@@ -1,0 +1,37 @@
+def main():
+    plate = input("Plate: ")
+    if is_valid(plate):
+        print("Valid")
+    else:
+        print("Invalid")
+
+def is_valid(s):
+    if not starts_with_two_letters(s):
+        return False
+    if not has_valid_length(s):
+        return False
+    if not is_alphanumeric(s):
+        return False
+    if not numbers_at_end(s):
+        return False
+    return True
+
+def starts_with_two_letters(s):
+    return len(s) >= 2 and s[:2].isalpha()
+
+def has_valid_length(s):
+    return 2 <= len(s) <= 6
+
+def is_alphanumeric(s):
+    return s.isalnum()
+
+def numbers_at_end(s):
+    for i in range(len(s)):
+        if s[i].isdigit():
+            if s[i] == '0':
+                return False
+            # Check if all subsequent characters are digits
+            return s[i:].isdigit()
+    return True
+
+main()
