@@ -1,0 +1,5 @@
+question = input("Input :")
+
+result = "".join(char for char in question if char.lower() not in "aeiou")
+
+print(result)
