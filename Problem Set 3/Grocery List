@@ -1,0 +1,25 @@
+def main():
+    # Dictionary to store items and their counts
+    grocery_list = {}
+
+    while True:
+        try:
+            item = input().strip().lower()  # Read input, strip whitespace, and convert to lowercase
+            if item in grocery_list:
+                grocery_list[item] += 1
+            else:
+                grocery_list[item] = 1
+
+        except EOFError:
+            break  # Exit the loop when Ctrl+D is pressed
+
+    # Sort the grocery list alphabetically by item
+    sorted_items = sorted(grocery_list.items())
+
+    # Output the grocery list in the desired format
+    for item, count in sorted_items:
+        print(f"{count} {item.upper()}")
+
+
+if __name__ == "__main__":
+    main()
