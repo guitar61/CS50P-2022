@@ -1,0 +1,33 @@
+def main():
+    def check_tank():
+        while True:
+            try:
+                # Read and process the fraction input
+                fraction = input("Fraction: ").strip()
+                numerator, denominator = fraction.split("/")
+                numerator = int(numerator)
+                denominator = int(denominator)
+
+                # Calculate the tank percentage
+                tank = round(numerator / denominator * 100)
+
+                # Determine the tank status
+                if tank > 100:
+                    raise ValueError
+                elif tank <= 1:
+                    return 'E'
+                elif tank >= 99:
+                    return 'F'
+                else:
+                    return f"{tank}%"
+
+            except (ZeroDivisionError, ValueError):
+                # If there's an error, prompt the user again
+                continue
+
+    # Print the result of the check_tank function
+    print(check_tank())
+
+# Entry point of the script
+if __name__ == "__main__":
+    main()
