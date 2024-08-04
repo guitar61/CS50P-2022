@@ -1,0 +1,31 @@
+import random
+
+# Prompt for a valid level
+while True:
+    try:
+        level = int(input("Level: "))
+        if level > 0:
+            break
+        else:
+            print("Please enter a positive level.")
+    except ValueError:
+        print("Please enter a valid number.")
+
+# Generate a random number between 1 and the specified level
+random_num = random.randint(1, level)
+
+# Prompt for guesses until the correct number is guessed
+while True:
+    try:
+        guess = int(input("Guess: "))
+        if guess <= 0:
+            print("Please enter a positive guess.")
+        elif guess > random_num:
+            print("Too large!")
+        elif guess < random_num:
+            print("Too small!")
+        else:
+            print("Just right!")
+            break
+    except ValueError:
+        print("Please enter a valid number.")
