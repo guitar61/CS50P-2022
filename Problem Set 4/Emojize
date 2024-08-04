@@ -1,0 +1,15 @@
+import emoji
+import sys
+
+# Check if a command-line argument is provided
+if len(sys.argv) > 1:
+    emoj = sys.argv[1]
+else:
+    # Take user input
+    emoj = input("Input: ")
+
+# Convert text representing emojis into actual emojis
+output = emoji.emojize(emoj, language='alias')
+
+# Print the result
+print(output)
