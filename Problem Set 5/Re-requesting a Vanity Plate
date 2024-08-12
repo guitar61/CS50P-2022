@@ -1,0 +1,23 @@
+from plates import is_valid
+
+def test_starts_with_two_letters():
+    assert is_valid("AB123") == True  # Valid: starts with two letters
+    assert is_valid("A1234") == False  # Invalid: starts with one letter
+    assert is_valid("12345") == False  # Invalid: starts with digits
+
+def test_has_valid_length():
+    assert is_valid("AB") == True  # Valid: length is 2
+    assert is_valid("ABCDEF") == True  # Valid: length is 6
+    assert is_valid("ABCDEFG") == False  # Invalid: length is greater than 6
+    assert is_valid("A") == False  # Invalid: length is less than 2
+
+def test_is_alphanumeric():
+    assert is_valid("AB123") == True  # Valid: all characters are alphanumeric
+    assert is_valid("AB12!") == False  # Invalid: contains a special character
+    assert is_valid("AB CD") == False  # Invalid: contains a space
+
+def test_numbers_at_end():
+    assert is_valid("AB123") == True  # Valid: numbers at the end
+    assert is_valid("AB012") == False  # Invalid: numbers start with 0
+    assert is_valid("AB12C3") == False  # Invalid: numbers not at the end
+    assert is_valid("ABC12") == True  # Valid: numbers at the end, do not start with 0
