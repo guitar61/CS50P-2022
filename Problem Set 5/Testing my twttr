@@ -1,0 +1,24 @@
+import pytest
+from twttr import shorten
+
+def test_only_vowel():
+    assert shorten("aeiou") == ""
+
+def test_only_consonants():
+    assert shorten("abcdf") == "bcdf"
+
+def test_only_mixed():
+    assert shorten("abceor") == "bcr"
+
+def test_shorten_no_vowels():
+    assert shorten("rhythm") == "rhythm"
+
+def test_capitalized_vowels():
+    assert shorten("AEIOU") == ""
+    assert shorten("AbCdEfGhI") == "bCdfGh"
+
+def test_preserve_numbers():
+    assert shorten("a1e2i3o4u5") == "12345"
+
+def test_preserve_punctuation():
+    assert shorten("a,e.i!o?u") == ",.!?"
