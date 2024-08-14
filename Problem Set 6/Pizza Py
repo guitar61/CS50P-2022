@@ -1,0 +1,30 @@
+import sys
+import os
+import csv
+import tabulate
+
+def main():
+    if len(sys.argv) < 2:
+        sys.exit("Too few command-line arguments")
+    elif len(sys.argv) > 2:
+        sys.exit("Too many command-line arguments")
+    elif not os.path.exists(sys.argv[-1]):
+        sys.exit("File does not exist")
+    elif not sys.argv[-1].endswith(".csv"):
+        sys.exit("Not a CSV file")
+    else:
+        try:
+            with open (sys.argv[-1], 'r') as file:
+                reader = csv.DictReader(file)
+                if reader:
+                    print(tabulate.tabulate(reader, headers="keys", tablefmt="grid"))
+                else:
+                    print("CSV file is empty.")
+        except Exception as e:
+            sys.exit(f"An error occurred: {e}")
+
+
+
+
+if __name__ == "__main__":
+    main()
