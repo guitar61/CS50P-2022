@@ -1,0 +1,28 @@
+import sys
+import os
+
+def main():
+    if len(sys.argv) < 2:
+        sys.exit("Too few command-line arguments")
+    elif len(sys.argv) > 2:
+        sys.exit("Too many command-line arguments")
+    elif not sys.argv[-1].endswith(".py"):
+        sys.exit("Not a Python file")
+    elif not os.path.exists(sys.argv[-1]):
+        sys.exit("File does not exist")
+    else:
+        try:
+            with open(sys.argv[-1], 'r') as file:
+                lines = file.readlines()
+                count = 0
+                for line in lines:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        count += 1
+                print(count)
+        except FileNotFoundError:
+            print("Not Found")
+
+
+if __name__ == "__main__":
+    main()
