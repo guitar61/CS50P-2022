@@ -1,0 +1,48 @@
+from datetime import date
+import sys
+import inflect
+
+
+def main():
+    # Prompt user for date of birth
+    birthDay_str = input("Date Of Birth: ")
+    birth_date = validate_date(birthDay_str)
+
+    # Check if date is valid
+    if birth_date is None:
+        sys.exit("Invalid date")
+
+    # Get today's date
+    today = date.today()
+
+    # Calculate minutes lived
+    minutes = calculate_minutes(birth_date, today)
+
+    # Convert minutes to words
+    minutes_in_words = convert_to_words(minutes)
+
+    # Print the result
+    print(f"{minutes_in_words} minutes")
+
+def validate_date(birthDay_str):
+    """Validates the date format and returns a date object or None if invalid."""
+    try:
+        year, month, day = map(int, birthDay_str.split("-"))
+        return date(year, month, day)
+    except (ValueError, TypeError):
+        return None
+
+def calculate_minutes(birth_date, today):
+    """Calculates the total number of minutes between birth_date and today."""
+    diff = today - birth_date
+    return diff.days * 24 * 60
+
+def convert_to_words(number):
+    """Converts a number to words using the inflect library."""
+    p = inflect.engine()
+    words = p.number_to_words(number, andword="")
+    return words[0].capitalize() + words[1:]  # Capitalize first letter
+
+
+if __name__ == "__main__":
+    main()
